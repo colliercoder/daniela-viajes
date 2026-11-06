@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>8 días en Guatemala, planeados con IA · Itinerario gratis</title>
+<meta name="description" content="Nuestro itinerario real de 8 días por Antigua, Acatenango y el Lago de Atitlán: hoteles, precios, transporte, mapas y contactos. Gratis. Y el método para planear tu viaje con IA.">
+<meta property="og:title" content="8 días en Guatemala, planeados con IA">
+<meta property="og:description" content="Itinerario gratis: hoteles, precios, transporte, mapas y contactos. Por @danielacastano02.">
+<meta property="og:image" content="https://colliercoder.github.io/daniela-viajes/img/hero.jpg">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1b1712">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1712; --ink2:#4a4239; --mute:#8a8075; --cream:#faf6ef; --sand:#f1e9dc; --line:#e7dccb;
+  --terra:#d4552a; --terra2:#b8441d; --lake:#1f7a8c; --lake2:#e6f2f4; --white:#fff;
+  --r:18px; --shadow:0 18px 50px -20px rgba(27,23,18,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.015em;line-height:1.05;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;
+  font:600 17px/1 Inter,sans-serif;padding:18px 26px;border-radius:999px;background:var(--terra);color:#fff;
+  box-shadow:0 10px 24px -10px rgba(212,85,42,.8);transition:transform .15s ease, background .15s ease}
+.btn:hover{background:var(--terra2);transform:translateY(-1px)}
+.btn.dark{background:var(--ink);box-shadow:0 10px 24px -10px rgba(27,23,18,.7)}
+.btn.block{width:100%}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none;box-shadow:none}
+
+/* HERO */
+.hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(15,12,8,.55) 60%,rgba(15,12,8,.92) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-bottom:44px;width:100%}
+.hero .kicker{color:#ffd7c4}
+.hero h1{font-size:clamp(40px,9.5vw,76px);margin:12px 0 14px;max-width:12ch}
+.hero p{font-size:clamp(17px,2.4vw,20px);color:#f3ece2;max-width:34ch;margin:0 0 24px}
+.byline{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:14px;color:#e9dfd2}
+.byline b{color:#fff}
+.dot{width:8px;height:8px;border-radius:50%;background:#5fd38d;box-shadow:0 0 0 4px rgba(95,211,141,.25)}
+
+/* SECTIONS */
+section{padding:72px 0}
+.sec-title{font-size:clamp(32px,6vw,52px);margin:10px 0 14px}
+.lead{font-size:18px;color:var(--ink2);max-width:58ch}
+
+/* QUIZ */
+.quiz{background:var(--white);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:28px 22px;max-width:640px;margin:-80px auto 0;position:relative;z-index:2}
+.quiz h2{font-size:clamp(26px,5vw,34px);margin:6px 0 4px}
+.quiz .q{margin-top:22px}
+.quiz .q-label{font-size:13px;color:var(--mute);font-weight:600}
+.quiz .q-text{font-weight:700;font-size:19px;margin:2px 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{border:1.5px solid var(--line);background:var(--cream);border-radius:999px;padding:11px 16px;font:500 15px Inter,sans-serif;cursor:pointer;color:var(--ink);transition:all .12s}
+.chip:hover{border-color:var(--ink2)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.quiz .go{margin-top:26px}
+.fine{font-size:13px;color:var(--mute);margin-top:12px;text-align:center}
+.done{display:none;margin-top:18px;background:var(--lake2);border-radius:14px;padding:14px 16px;font-size:15px;color:#174f5a}
+.done.on{display:block}
+
+/* INSIDE FREE */
+.pages{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.pages figure{margin:0}
+.pages img{border-radius:10px;box-shadow:0 12px 30px -16px rgba(27,23,18,.5);border:1px solid var(--line);background:#fff}
+.pages figcaption{font-size:13px;color:var(--ink2);margin-top:8px;text-align:center}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.feat div{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px}
+.feat b{display:block;font-size:15px}
+
+/* METHOD / VSL */
+.method{background:var(--ink);color:#f3ece2}
+.method .kicker{color:#ff9b73}
+.method .sec-title{color:#fff;max-width:16ch}
+.method .lead{color:#d8cfc3}
+.quote{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:clamp(21px,3.4vw,28px);line-height:1.3;color:#fff;border-left:3px solid var(--terra);padding-left:16px;margin:22px 0 30px;max-width:30ch}
+.vsl{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+.vsl video,.vsl img{width:100%;height:100%;object-fit:cover}
+.vsl .soon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(10,8,6,.45);text-align:center;padding:20px}
+.play{width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center}
+.play:after{content:"";border-left:22px solid var(--ink);border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
+.soon span{font-weight:600;font-size:15px;color:#fff;background:rgba(0,0,0,.45);padding:7px 14px;border-radius:999px}
+.method-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;margin-top:36px;align-items:start}
+.story p{color:#d8cfc3;font-size:17px;margin:0 0 14px}
+.story b{color:#fff}
+
+.offer{background:var(--cream);color:var(--ink);border-radius:26px;padding:26px 22px;box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
+.offer h3{font-size:28px;margin:6px 0 6px}
+.offer .what{font-size:15px;color:var(--ink2);margin:0 0 14px}
+.steps{list-style:none;padding:0;margin:0 0 18px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.steps li:before{content:counter(s);font-weight:800;color:var(--terra);min-width:18px}
+.price{display:flex;align-items:baseline;gap:12px;margin:6px 0 4px}
+.price b{font-family:Fraunces,Georgia,serif;font-size:46px;line-height:1}
+.price span{color:var(--ink2);font-size:15px}
+.price-note{font-size:14px;color:var(--mute);margin-bottom:16px}
+.secure{font-size:13px;color:var(--mute);text-align:center;margin-top:12px}
+
+/* COMPARE */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.compare .col{border-radius:18px;padding:20px}
+.compare .them{background:var(--sand)}
+.compare .you{background:var(--white);border:2px solid var(--terra)}
+.compare h3{font-family:Inter,sans-serif;font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.compare ul{margin:0;padding:0;list-style:none}
+.compare li{padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.compare .them li:before{content:"✕  ";color:#a2968a}
+.compare .you li:before{content:"✓  ";color:var(--terra);font-weight:700}
+
+/* PROMPT PREVIEW */
+.prompt{position:relative;background:#16120d;color:#efe7da;border-radius:18px;padding:22px;font:13.5px/1.65 "SF Mono",Menlo,Consolas,monospace;white-space:pre-wrap;max-height:300px;overflow:hidden;margin-top:26px}
+.prompt:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,rgba(22,18,13,0),#16120d)}
+.prompt .tag{display:inline-block;font:700 11px Inter,sans-serif;letter-spacing:.14em;color:#ff9b73;margin-bottom:10px}
+.more{text-align:center;margin-top:14px;color:var(--ink2);font-size:15px}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:28px}
+.gallery figure{margin:0;position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/14}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 10px;font-size:12.5px;line-height:1.3;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75))}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}
+.about img{border-radius:24px;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--shadow)}
+.about p{font-size:17px;color:var(--ink2)}
+.ig{display:inline-flex;align-items:center;gap:8px;font-weight:600;text-decoration:none;border-bottom:2px solid var(--terra);padding-bottom:2px}
+
+/* FAQ */
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:10px}
+.faq summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary:after{content:"+";color:var(--terra);font-size:22px;line-height:1}
+.faq details[open] summary:after{content:"–"}
+.faq p{margin:10px 0 0;color:var(--ink2)}
+
+/* FINAL + FOOTER */
+.final{text-align:center}
+.final .sec-title{margin:10px auto 14px;max-width:18ch}
+footer{padding:36px 0 110px;text-align:center;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+
+/* STICKY BAR (mobile) */
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;display:none;align-items:center;justify-content:space-between;gap:12px;
+  background:rgba(27,23,18,.94);backdrop-filter:blur(8px);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;box-shadow:0 14px 40px -12px rgba(0,0,0,.6);
+  transform:translateY(140%);transition:transform .25s ease}
+.sticky.on{transform:none}
+.sticky small{display:block;color:#cfc5b8;font-size:12px}
+.sticky b{font-size:15px}
+.sticky .btn{padding:13px 18px;font-size:15px}
+
+@media (max-width:860px){
+  .method-grid,.about{grid-template-columns:1fr}
+  .pages{grid-template-columns:repeat(2,1fr)}
+  .feat{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .compare{grid-template-columns:1fr}
+  .sticky{display:flex}
+  section{padding:56px 0}
+}
+@media (min-width:861px){
+  .hero{min-height:88vh}
+  .hero .wrap{padding-bottom:120px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/hero.jpg" alt="Daniela en el volcán Acatenango, con el volcán de Fuego atrás">
+  <div class="wrap">
+    <div class="kicker">Itinerario gratis · PDF de 10 páginas</div>
+    <h1>8 días en Guatemala, planeados con IA</h1>
+    <p>Antigua, una noche frente al volcán de Fuego y el Lago de Atitlán. Con hoteles, precios, transporte, mapas y contactos. Te lo regalo.</p>
+    <a class="btn" href="#quiz">Quiero el itinerario gratis</a>
+    <div class="byline"><span class="dot"></span>por <b>Daniela</b> · @danielacastano02</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="quiz" id="quiz">
+    <div class="kicker">Gratis</div>
+    <h2>Dos preguntas y es tuyo</h2>
+    <div class="q">
+      <div class="q-label">1 de 2</div>
+      <div class="q-text">¿A dónde sueñas viajar?</div>
+      <div class="chips" data-q="destino">
+        <button class="chip" type="button" data-v="guatemala">Guatemala 🇬🇹</button>
+        <button class="chip" type="button" data-v="mexico">México 🇲🇽</button>
+        <button class="chip" type="button" data-v="peru">Perú 🇵🇪</button>
+        <button class="chip" type="button" data-v="colombia">Colombia 🇨🇴</button>
+        <button class="chip" type="button" data-v="europa">Europa 🇪🇺</button>
+        <button class="chip" type="button" data-v="otro">Otro lugar 🌎</button>
+      </div>
+    </div>
+    <div class="q">
+      <div class="q-label">2 de 2</div>
+      <div class="q-text">¿Con quién viajas?</div>
+      <div class="chips" data-q="viaja">
+        <button class="chip" type="button" data-v="pareja">En pareja</button>
+        <button class="chip" type="button" data-v="amigos">Con amigos</button>
+        <button class="chip" type="button" data-v="solo">Sola o solo</button>
+        <button class="chip" type="button" data-v="familia">En familia</button>
+      </div>
+    </div>
+    <a id="getFree" class="btn block go" aria-disabled="true" data-gumroad-overlay-checkout="true"
+       href="https://danielacastano.gumroad.com/l/itinerario-guatemala?wanted=true">Descargar mi itinerario gratis</a>
+    <div class="fine">Se abre una ventanita: escribe tu correo, deja el precio en 0 y lo descargas al instante.</div>
+    <div class="done" id="done">¡Listo! Tu itinerario va en camino a tu correo. Mientras tanto, mira esto ↓</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Lo que te llevas gratis</div>
+    <h2 class="sec-title">El plan real, día por día</h2>
+    <p class="lead">No es una lista genérica. Es el itinerario exacto que usamos, con lo que pagamos y a quién le escribimos.</p>
+    <div class="pages">
+      <figure><img src="img/pdf-01.jpg" alt="Página 1: ruta con mapa" loading="lazy"><figcaption>La ruta, con mapa</figcaption></figure>
+      <figure><img src="img/pdf-02.jpg" alt="Página 2: la semana de un vistazo" loading="lazy"><figcaption>La semana de un vistazo</figcaption></figure>
+      <figure><img src="img/pdf-03.jpg" alt="Página 3: día a día" loading="lazy"><figcaption>Día a día, con horarios</figcaption></figure>
+      <figure><img src="img/pdf-04.jpg" alt="Página 4: día a día" loading="lazy"><figcaption>Dónde dormir y comer</figcaption></figure>
+    </div>
+    <div class="feat">
+      <div><b>Hoteles y precios</b>Dónde dormimos cada noche y cuánto pagamos.</div>
+      <div><b>Transporte</b>Shuttles, conductor privado y lanchas, con precios y horarios.</div>
+      <div><b>Presupuesto</b>Unos $1,415 para 2 personas sin vuelos, desglosado.</div>
+      <div><b>Restaurantes y mapas</b>Los mejores de Antigua y del lago, en el mapa.</div>
+      <div><b>Contactos</b>WhatsApp de hoteles, tours y transporte.</div>
+      <div><b>Qué llevar</b>Para el volcán, más frases útiles.</div>
+    </div>
+  </div>
+</section>
+
+<section class="method" id="metodo">
+  <div class="wrap">
+    <div class="kicker">Ahora te toca a ti</div>
+    <h2 class="sec-title">Este itinerario es el pescado. ¿Quieres la caña?</h2>
+    <div class="quote">Dale un pescado a alguien y come hoy. Enséñale a pescar y come toda la vida.</div>
+
+    <div class="vsl" id="vsl">
+      <img src="img/ia.jpg" alt="Planeando el viaje con IA frente al Lago de Atitlán">
+      <div class="soon"><div class="play"></div><span>El video de Daniela llega muy pronto</span></div>
+    </div>
+
+    <div class="method-grid">
+      <div class="story">
+        <p>Todo este viaje lo planeamos con <b>inteligencia artificial</b>: los hoteles, los traslados, el presupuesto y hasta los mensajes de WhatsApp para pedir cuarto en hoteles que salían agotados.</p>
+        <p>Lo convertimos en una guía paso a paso para que tú armes <b>tu</b> viaje, a cualquier destino, desde el celular y a tu ritmo.</p>
+        <p>Y no es solo nuestro viaje: <b>revisamos las guías, checklists y procesos de más de 100 agencias y operadores de viaje</b> y metimos sus mejores reglas en cada paso. La lista de fuentes va al final de la guía.</p>
+        <p>Son 9 prompts que copias y pegas en ChatGPT o Gemini (la versión gratis sirve), con el ejemplo real de Guatemala en cada paso.</p>
+      </div>
+      <div class="offer" id="oferta">
+        <div class="kicker">La guía</div>
+        <h3>Planifica tu viaje con IA</h3>
+        <p class="what">PDF de 19 páginas + archivo con los 9 prompts listos para copiar.</p>
+        <ol class="steps">
+          <li>Tu ficha de viaje</li>
+          <li>La ruta y la fecha que se llena primero</li>
+          <li>Dónde dormir, con disponibilidad real</li>
+          <li>El truco para los hoteles "agotados"</li>
+          <li>Transporte y precios</li>
+          <li>Eventos, tours y dónde comer</li>
+          <li>Presupuesto, efectivo y tarjetas</li>
+          <li>Fechas límite y recordatorios</li>
+          <li>Tu itinerario final en PDF</li>
+        </ol>
+        <p class="what" style="margin-top:-6px"><b>+ Bonus:</b> 30 reglas de más de 100 agencias y operadores de viaje, el prompt de todo en uno y el checklist final.</p>
+        <div class="price"><b>$25</b><span>USD</span></div>
+        <div class="price-note">≈ 100.000 COP · menos que una noche de hotel</div>
+        <a class="btn block" data-gumroad-overlay-checkout="true" href="https://danielacastano.gumroad.com/l/planifica-tu-viaje?wanted=true">Quiero la guía</a>
+        <div class="secure">Pago seguro con tarjeta o PayPal por Gumroad · descarga inmediata</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Por qué hacerlo tú</div>
+    <h2 class="sec-title">Agencia o tú con IA</h2>
+    <div class="compare">
+      <div class="col them">
+        <h3>Agencia de viajes</h3>
+        <ul>
+          <li>Te cobran por armar cada viaje</li>
+          <li>Esperas a que te respondan</li>
+          <li>Te entregan un plan cerrado</li>
+          <li>No aprendes nada para el próximo</li>
+        </ul>
+      </div>
+      <div class="col you">
+        <h3>Tú con esta guía</h3>
+        <ul>
+          <li>Pagas una vez y la usas en todos tus viajes</li>
+          <li>Lo haces cuando quieras, desde el celular</li>
+          <li>Lo cambias todas las veces que quieras</li>
+          <li>Cada viaje te sale mejor que el anterior</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prompt"><span class="tag">PASO 1 · ASÍ SE VEN LOS PROMPTS</span>
+Actúa como mi agente de viajes personal. Vamos a planear un viaje juntos, paso a paso, en este chat.
+
+Antes de buscar nada, hazme máximo 10 preguntas para entender el viaje. Pregunta por: destino o región, fechas exactas, ciudad de salida, quiénes viajamos, presupuesto total aproximado, tipo de alojamiento...</div>
+    <div class="more">…y 8 pasos más, cada uno con el ejemplo real de Guatemala.</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Así se vivió</div>
+    <h2 class="sec-title">Guatemala, en 8 días</h2>
+    <div class="gallery">
+      <figure><img src="img/fuego.jpg" alt="" loading="lazy"><figcaption>El Fuego en erupción, desde Acatenango</figcaption></figure>
+      <figure><img src="img/sumpango.jpg" alt="" loading="lazy"><figcaption>Barriletes gigantes de Sumpango</figcaption></figure>
+      <figure><img src="img/lago.jpg" alt="" loading="lazy"><figcaption>Camino al Lago de Atitlán</figcaption></figure>
+      <figure><img src="img/panajachel.jpg" alt="" loading="lazy"><figcaption>La calle de las sombrillas, Panajachel</figcaption></figure>
+      <figure><img src="img/antigua.jpg" alt="" loading="lazy"><figcaption>Antigua Guatemala</figcaption></figure>
+      <figure><img src="img/lancha.jpg" alt="" loading="lazy"><figcaption>En lancha por el lago</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap about">
+    <img src="img/daniela-laptop.jpg" alt="Daniela planeando con su laptop" loading="lazy">
+    <div>
+      <div class="kicker">Hola, soy Daniela</div>
+      <h2 class="sec-title">Viajo, y planeo todo con IA</h2>
+      <p>Soy colombiana. Para Guatemala planeamos todo con inteligencia artificial, desde el primer hotel hasta el PDF final, y quedó tan bien que lo quise compartir.</p>
+      <p>Aquí te enseño a hacerlo tú, paso a paso, para que tu próximo viaje te salga todavía mejor.</p>
+      <a class="ig" href="https://www.instagram.com/danielacastano02/" target="_blank" rel="noopener">Sígueme en Instagram @danielacastano02 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" style="padding-top:0">
+  <div class="wrap" style="max-width:760px">
+    <div class="kicker">Preguntas</div>
+    <h2 class="sec-title">Lo que más me preguntan</h2>
+    <details><summary>¿Tengo que pagar ChatGPT?</summary><p>No. Los prompts funcionan en la versión gratis de ChatGPT o de Gemini. Solo activa la búsqueda web.</p></details>
+    <details><summary>¿Sirve para cualquier destino?</summary><p>Sí. El ejemplo es Guatemala, pero los 9 pasos sirven para cualquier viaje, dentro o fuera de Colombia.</p></details>
+    <details><summary>¿De dónde salen los pasos?</summary><p>De cómo planeamos Guatemala, más las guías, checklists y procesos de más de 100 agencias y operadores de viaje de Colombia, México, España, Argentina, Chile, Perú, Estados Unidos y Reino Unido. Al final de la guía está la lista completa, con enlaces.</p></details>
+    <details><summary>¿Cómo la recibo?</summary><p>Apenas pagas, descargas el PDF y el archivo de prompts, y también te llegan al correo.</p></details>
+    <details><summary>¿Cómo pago?</summary><p>Con tarjeta de crédito o débito, o con PayPal, a través de Gumroad. El cobro es de $25 USD y tu banco lo convierte a pesos.</p></details>
+    <details><summary>¿El itinerario de Guatemala es gratis de verdad?</summary><p>Sí. Solo te pide tu correo para mandártelo.</p></details>
+  </div>
+</section>
+
+<section class="final" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Tu próximo viaje</div>
+    <h2 class="sec-title">Deja de pagar para que te lo planeen</h2>
+    <a class="btn dark" data-gumroad-overlay-checkout="true" href="https://danielacastano.gumroad.com/l/planifica-tu-viaje?wanted=true">Quiero la guía · $25</a>
+    <div style="margin-top:14px"><a href="#quiz" style="color:var(--ink2);font-size:15px">o descarga primero el itinerario gratis</a></div>
+  </div>
+</section>
+
+<footer>Hecho con IA en Medellín · <a href="https://www.instagram.com/danielacastano02/" target="_blank" rel="noopener">@danielacastano02</a></footer>
+
+<div class="sticky" id="sticky">
+  <div><small>La guía completa</small><b>Planifica tu viaje con IA</b></div>
+  <a class="btn" data-gumroad-overlay-checkout="true" href="https://danielacastano.gumroad.com/l/planifica-tu-viaje?wanted=true">$25</a>
+</div>
+
+<script>
+(function(){
+  var answers = {};
+  var btn = document.getElementById('getFree');
+  var base = 'https://danielacastano.gumroad.com/l/itinerario-guatemala';
+  // Carry utm_* and similar tags from the DM link into Gumroad so each sale shows its source.
+  var incoming = new URLSearchParams(location.search);
+  function freeUrl(){
+    var p = new URLSearchParams();
+    p.set('wanted','true');
+    incoming.forEach(function(v,k){ if(/^utm_|^ref$/.test(k)) p.set(k,v); });
+    if(answers.destino) p.set('destino',answers.destino);
+    if(answers.viaja) p.set('viaja',answers.viaja);
+    return base + '?' + p.toString();
+  }
+  document.querySelectorAll('.chips').forEach(function(group){
+    group.addEventListener('click', function(e){
+      var c = e.target.closest('.chip'); if(!c) return;
+      group.querySelectorAll('.chip').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      c.setAttribute('aria-pressed','true');
+      answers[group.dataset.q] = c.dataset.v;
+      btn.href = freeUrl();
+      if(answers.destino && answers.viaja) btn.setAttribute('aria-disabled','false');
+    });
+  });
+  btn.addEventListener('click', function(){
+    if(btn.getAttribute('aria-disabled') === 'true') return;
+    document.getElementById('done').classList.add('on');
+    setTimeout(function(){ document.getElementById('metodo').scrollIntoView({behavior:'smooth'}); }, 8000);
+  });
+  // Paid links also carry the source tags.
+  document.querySelectorAll('a[href*="planifica-tu-viaje"]').forEach(function(a){
+    var u = new URL(a.href);
+    incoming.forEach(function(v,k){ if(/^utm_|^ref$/.test(k)) u.searchParams.set(k,v); });
+    a.href = u.toString();
+  });
+  // Sticky bar shows after the hero on phones.
+  // Only after the visitor reaches the offer, so it never competes with the free quiz.
+  var sticky = document.getElementById('sticky');
+  var metodo = document.getElementById('metodo');
+  var oferta = document.getElementById('oferta');
+  function upd(){
+    var reached = metodo.getBoundingClientRect().top < innerHeight * 0.6;
+    var r = oferta.getBoundingClientRect();
+    var offerVisible = r.top < innerHeight && r.bottom > 0;
+    sticky.classList.toggle('on', reached && !offerVisible);
+  }
+  addEventListener('scroll', upd, {passive:true}); upd();
+})();
+</script>
+<script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>

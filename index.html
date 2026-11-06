@@ -147,6 +147,11 @@ section{padding:72px 0}
 .chip:hover{border-color:var(--ink2)}
 .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .go{margin-top:24px}
+.email{margin-top:22px}
+.email label{display:block;font-weight:700;font-size:19px;margin:0 0 10px}
+.email input{width:100%;font:500 17px Inter,sans-serif;padding:16px 18px;border:1.5px solid var(--line);border-radius:14px;background:var(--cream);color:var(--ink)}
+.email input:focus{outline:none;border-color:var(--ink2);background:#fff}
+.consent{font-size:12px;color:var(--mute);margin-top:10px;text-align:center}
 .fine{font-size:13px;color:var(--mute);margin-top:12px;text-align:center}
 .trip{display:flex;gap:14px;align-items:center;margin-top:22px;padding:14px;border-radius:16px;background:var(--cream);border:1px solid var(--line)}
 .trip img{width:84px;height:84px;border-radius:12px;object-fit:cover;flex:none}
@@ -396,8 +401,13 @@ Antes de buscar nada, hazme máximo 10 preguntas para entender el viaje. Pregunt
 
       <!-- Version A: free, then the offer -->
       <div data-only="a">
+        <div class="email">
+          <label for="email">¿A qué correo te escribo?</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" autocomplete="email" inputmode="email" required>
+        </div>
         <a id="getFree" class="btn block go gum" aria-disabled="true" data-prod="gratis" href="itinerario-guatemala-gratis.pdf">Descargar mi itinerario gratis</a>
-        <div class="fine">Responde las 2 preguntas y lo descargas al instante.</div>
+        <div class="fine">Responde las 2 preguntas, escribe tu correo y lo descargas al instante.</div>
+        <div class="consent">Al descargarlo aceptas que Daniela te escriba sobre viajes. Puedes darte de baja cuando quieras.</div>
         <div class="oto" id="oto">
           <div class="ok">¡Listo! Tu itinerario se está descargando ✈️</div>
           <h3>Antes de irte: ¿quieres planear el tuyo?</h3>
@@ -440,7 +450,7 @@ Antes de buscar nada, hazme máximo 10 preguntas para entender el viaje. Pregunt
     <details><summary>¿De dónde salen los pasos?</summary><p>De cómo planeamos Guatemala, más las guías, checklists y procesos de más de 100 agencias y operadores de viaje de Colombia, México, España, Argentina, Chile, Perú, Estados Unidos y Reino Unido. Al final de la guía está la lista completa, con enlaces.</p></details>
     <details><summary>¿Cómo lo recibo?</summary><p>Al instante. El itinerario gratis se descarga apenas respondes las 2 preguntas. Si compras la guía, al pagar te llevamos directo a la descarga y el recibo te llega al correo.</p></details>
     <details><summary>¿Cómo pago?</summary><p>Con tarjeta de crédito o débito, en la página de pago segura de Stripe. El precio está en pesos colombianos. Por ahora no recibimos PSE ni Nequi.</p></details>
-    <details data-only="a"><summary>¿El itinerario es gratis de verdad?</summary><p>Sí, es gratis.</p></details>
+    <details data-only="a"><summary>¿El itinerario es gratis de verdad?</summary><p>Sí. Solo te pido tu correo para escribirte sobre viajes, y te puedes dar de baja cuando quieras.</p></details>
     <details data-only="b"><summary>¿Por qué el itinerario cuesta 5.000 pesos?</summary><p>Es un precio simbólico, menos que un café en el aeropuerto, por 10 páginas con todo lo que pagamos, los contactos y los mapas.</p></details>
   </div>
 </section>
@@ -495,12 +505,33 @@ Antes de buscar nada, hazme máximo 10 preguntas para entender el viaje. Pregunt
       c.setAttribute('aria-pressed', 'true');
       answers[group.dataset.q] = c.dataset.v;
       refresh();
-      if (answers.destino && answers.viaja) free.setAttribute('aria-disabled', 'false');
+      gate();
     });
   });
+  var emailEl = document.getElementById('email');
+  function validEmail(){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((emailEl.value || '').trim()); }
+  function gate(){ free.setAttribute('aria-disabled', (answers.destino && answers.viaja && validEmail()) ? 'false' : 'true'); }
+  emailEl.addEventListener('input', gate);
+  // Email capture: Daniela's GHL inbound webhook (contact + reel, campaign, quiz answers, version).
+  var GHL_HOOK = 'https://services.leadconnectorhq.com/hooks/HCj3wEbx17gIIyn5pZGg/webhook-trigger/ie1u5SuWL5gu2pxVmpCK';
+  var sent = false;
+  function capture(){
+    if (sent) return; sent = true;
+    var body = { email: emailEl.value.trim(), ab: V, destino: answers.destino || '', viaja: answers.viaja || '' };
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){ body[k] = incoming.get(k) || ''; });
+    try {
+      fetch(GHL_HOOK, { method: 'POST', mode: 'cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .catch(function(){ sent = false; });
+    } catch(e) { sent = false; }
+    // The guide offer opens with the email already filled in at Stripe checkout.
+    document.querySelectorAll('a.gum[data-prod="guia"]').forEach(function(a){
+      var u = new URL(a.href); u.searchParams.set('prefilled_email', body.email); a.href = u.toString();
+    });
+  }
   // Version A: show the guide offer right after the free download opens.
-  free.addEventListener('click', function(){
-    if (free.getAttribute('aria-disabled') === 'true') return;
+  free.addEventListener('click', function(e){
+    if (free.getAttribute('aria-disabled') === 'true') { e.preventDefault(); if (!validEmail()) emailEl.focus(); return; }
+    capture();
     document.getElementById('oto').classList.add('on');
   });
   // Version B: the order bump switches the buy button between the itinerary alone and the bundle.

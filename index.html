@@ -11,8 +11,12 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#1b1712">
 <script>
+// SHOP_LIVE: false until Daniela's Gumroad products are published (needs her payout method).
+// While false: everyone sees version A, the free PDF downloads straight from this site and the guide shows "muy pronto".
+window.SHOP_LIVE = false;
 // A/B split before paint: ?v=a|b forces a version; otherwise a random 50/50 that sticks per visitor.
 (function(){
+  if (!window.SHOP_LIVE) { document.documentElement.setAttribute('data-v', 'a'); document.documentElement.classList.add('shop-off'); return; }
   var q = new URLSearchParams(location.search).get('v'), v;
   if (q === 'a' || q === 'b') { v = q; }
   else { try { v = localStorage.getItem('dv_ab'); } catch(e){} if (v !== 'a' && v !== 'b') v = Math.random() < 0.5 ? 'a' : 'b'; }
@@ -38,6 +42,10 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.015
 .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
 .kicker{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
 html[data-v="a"] [data-only="b"], html[data-v="b"] [data-only="a"]{display:none !important}
+html.shop-off [data-shop="on"], html:not(.shop-off) [data-shop="off"]{display:none !important}
+.soonbox{border:1.5px dashed var(--terra);border-radius:14px;padding:14px 16px;font-size:15px;margin-top:6px}
+.soonbox b{color:var(--terra2)}
+.oto .soonbox{border-color:#ff9b73;color:#efe7da}.oto .soonbox b{color:#ffb894}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;
   font:600 17px/1.15 Inter,sans-serif;padding:18px 26px;border-radius:999px;background:var(--terra);color:#fff;text-align:center;
   box-shadow:0 10px 24px -10px rgba(212,85,42,.8);transition:transform .15s ease, background .15s ease}
@@ -307,16 +315,19 @@ footer{padding:36px 0 110px;text-align:center;color:var(--mute);font-size:14px}
         </ol>
         <p class="what"><b>+ Bonus:</b> 30 reglas de más de 100 agencias y operadores de viaje, el prompt de todo en uno y el checklist final.</p>
         <div data-only="a">
-          <div class="price"><b>$25</b><span>USD · ≈ 100.000 COP</span></div>
-          <div class="price-note">Menos que una noche de hotel.</div>
-          <a class="btn block gum" data-prod="guia" href="https://danielacastano.gumroad.com/l/planifica-tu-viaje">Quiero la guía</a>
+          <div data-shop="on">
+            <div class="price"><b>$25</b><span>USD · ≈ 100.000 COP</span></div>
+            <div class="price-note">Menos que una noche de hotel.</div>
+            <a class="btn block gum" data-prod="guia" href="https://danielacastano.gumroad.com/l/planifica-tu-viaje">Quiero la guía</a>
+          </div>
+          <div class="soonbox" data-shop="off"><b>La guía sale muy pronto.</b> Sígueme en Instagram <a href="https://www.instagram.com/danielacastano02/" target="_blank" rel="noopener">@danielacastano02</a> y te aviso primero.</div>
         </div>
         <div data-only="b">
           <div class="price"><b>$26.25</b><span>USD · ≈ 105.000 COP</span></div>
           <div class="price-note">La guía + el itinerario de Guatemala.</div>
           <a class="btn block gum" data-prod="bundle" href="https://danielacastano.gumroad.com/l/itinerario-y-guia">Quiero la guía y el itinerario</a>
         </div>
-        <div class="secure">Pago seguro con tarjeta o PayPal por Gumroad · descarga inmediata</div>
+        <div class="secure" data-shop="on">Pago seguro con tarjeta o PayPal por Gumroad · descarga inmediata</div>
       </div>
     </div>
   </div>
@@ -386,14 +397,19 @@ Antes de buscar nada, hazme máximo 10 preguntas para entender el viaje. Pregunt
       <!-- Version A: free, then the offer -->
       <div data-only="a">
         <a id="getFree" class="btn block go gum" aria-disabled="true" data-prod="gratis" href="https://danielacastano.gumroad.com/l/itinerario-guatemala">Descargar mi itinerario gratis</a>
-        <div class="fine">Responde las 2 preguntas. Se abre una ventanita: escribe tu correo y lo descargas al instante, sin salir de esta página.</div>
+        <div class="fine" data-shop="on">Responde las 2 preguntas. Se abre una ventanita: escribe tu correo y lo descargas al instante, sin salir de esta página.</div>
+        <div class="fine" data-shop="off">Responde las 2 preguntas y lo descargas al instante.</div>
         <div class="oto" id="oto">
-          <div class="ok">¡Listo! Tu itinerario va en camino a tu correo ✈️</div>
+          <div class="ok" data-shop="on">¡Listo! Tu itinerario va en camino a tu correo ✈️</div>
+          <div class="ok" data-shop="off">¡Listo! Tu itinerario se está descargando ✈️</div>
           <h3>Antes de irte: ¿quieres planear el tuyo?</h3>
           <p>El itinerario es el pescado. La guía es la caña: los 9 prompts que usamos para planear Guatemala, para que armes tu viaje a cualquier destino.</p>
           <ul><li>Guía de 19 páginas + los prompts listos para copiar</li><li>30 reglas de más de 100 agencias y operadores de viaje</li><li>Funciona con ChatGPT o Gemini gratis</li></ul>
-          <div class="price"><b>$25</b><span>USD · ≈ 100.000 COP</span></div>
-          <a class="btn block gum" data-prod="guia" href="https://danielacastano.gumroad.com/l/planifica-tu-viaje">Sí, quiero la guía</a>
+          <div data-shop="on">
+            <div class="price"><b>$25</b><span>USD · ≈ 100.000 COP</span></div>
+            <a class="btn block gum" data-prod="guia" href="https://danielacastano.gumroad.com/l/planifica-tu-viaje">Sí, quiero la guía</a>
+          </div>
+          <div class="soonbox" data-shop="off"><b>Sale muy pronto.</b> Sígueme en Instagram <a href="https://www.instagram.com/danielacastano02/" target="_blank" rel="noopener">@danielacastano02</a> y te aviso primero.</div>
         </div>
       </div>
 
@@ -424,9 +440,9 @@ Antes de buscar nada, hazme máximo 10 preguntas para entender el viaje. Pregunt
     <details><summary>¿Tengo que pagar ChatGPT?</summary><p>No. Los prompts de la guía funcionan en la versión gratis de ChatGPT o de Gemini. Solo activa la búsqueda web.</p></details>
     <details><summary>¿Sirve para cualquier destino?</summary><p>Sí. El ejemplo es Guatemala, pero los 9 pasos sirven para cualquier viaje, dentro o fuera de Colombia.</p></details>
     <details><summary>¿De dónde salen los pasos?</summary><p>De cómo planeamos Guatemala, más las guías, checklists y procesos de más de 100 agencias y operadores de viaje de Colombia, México, España, Argentina, Chile, Perú, Estados Unidos y Reino Unido. Al final de la guía está la lista completa, con enlaces.</p></details>
-    <details><summary>¿Cómo lo recibo?</summary><p>Al instante: lo descargas en la ventanita y también te llega al correo.</p></details>
+    <details><summary>¿Cómo lo recibo?</summary><p data-shop="on">Al instante: lo descargas en la ventanita y también te llega al correo.</p><p data-shop="off">Al instante: respondes las 2 preguntas y se descarga el PDF.</p></details>
     <details><summary>¿Cómo pago?</summary><p>Con tarjeta de crédito o débito, o con PayPal, a través de Gumroad. El cobro es en dólares y tu banco lo convierte a pesos.</p></details>
-    <details data-only="a"><summary>¿El itinerario es gratis de verdad?</summary><p>Sí. Solo te pide tu correo para mandártelo.</p></details>
+    <details data-only="a"><summary>¿El itinerario es gratis de verdad?</summary><p>Sí, es gratis.</p></details>
     <details data-only="b"><summary>¿Por qué el itinerario cuesta 5.000 pesos?</summary><p>Es un precio simbólico, menos que un café en el aeropuerto, por 10 páginas con todo lo que pagamos, los contactos y los mapas.</p></details>
   </div>
 </section>
@@ -469,7 +485,10 @@ Antes de buscar nada, hazme máximo 10 preguntas para entender el viaje. Pregunt
     return BASE[prod] + '?' + p.toString();
   }
   function refresh(){
-    document.querySelectorAll('a.gum').forEach(function(a){ a.href = link(a.dataset.prod); a.setAttribute('data-gumroad-overlay-checkout', 'true'); });
+    document.querySelectorAll('a.gum').forEach(function(a){
+      if (!window.SHOP_LIVE && a.dataset.prod === 'gratis') { a.href = 'itinerario-guatemala-gratis.pdf'; a.setAttribute('download', 'Itinerario-Guatemala-gratis.pdf'); return; }
+      a.href = link(a.dataset.prod); a.setAttribute('data-gumroad-overlay-checkout', 'true');
+    });
   }
   refresh();
 
